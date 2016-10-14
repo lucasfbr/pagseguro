@@ -1,0 +1,32 @@
+extends layout
+
+block content
+
+  nav.navbar.navbar-inverse.navbar-fixed-top
+    .container
+      .nav-title
+        h1 node-pagseguro sample
+      .shopcar
+        p
+          strong Total
+        p
+        p R$ {{total}}
+        p
+        p
+          strong Items
+        p
+        p {{count}}
+        p
+          input(type='button', data-ng-click='checkOut()', value='finalizar compra')
+  .container
+    .row
+      .col-md-4(ng-repeat='item in items')
+        h3 {{ item.name }}
+        p R$ {{ item.price }}
+        img(ng-src='{{ item.imageUrl }}', alt='', width='130')
+        p
+          a.btn.btn-default(data-ng-click='addItem(item)', href='javascript:void(0);', role='button') adicionar
+    hr
+    footer
+      br
+      p T-Shirt Shop - 2015
